@@ -1,2 +1,2 @@
 # aries-theme
-Starting theme for worpress development
+Started theme for worpress development
