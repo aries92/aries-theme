@@ -1,0 +1,10 @@
+- Load OpenServer
+- Create new databse in phpmyadmin
+- Create folder in domains folder
+- Run wordpress install on localhost new created database
+- Setup init moduls below
+
+cd your folder
+//rimraf node_modules
+ 
+npm install gulp gulp-sass gulp-autoprefixer browser-sync gulp-cssnano gulp-sourcemaps gulp-imagemin gulp-cache run-sequence gulp-plumber --save-dev

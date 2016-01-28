@@ -1,0 +1,1 @@
+{"version":3,"sources":["init.scss"],"names":[],"mappings":"AAEA,KACE,cAAe,AACf,SAAU,AACV,cAAgB,CACjB","file":"init.css","sourcesContent":["//@import \"../scss/init/bootstrap-sass/assets/stylesheets/_bootstrap.scss\";\r\n\r\nbody {\r\n  display: block;\r\n  widows: 1;\r\n  background: red;\r\n}"],"sourceRoot":"/source/"}
