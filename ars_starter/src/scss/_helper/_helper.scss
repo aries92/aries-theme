@@ -1,0 +1,294 @@
+//Shortened border-radius
+@mixin br($radius: $default-radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//Div fill the parent
+@mixin fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+//Shortened Background
+@mixin bg($img-name, $repeat: n, $posion: cc, $cover: n) {
+  $r: null;
+  $p: null;
+  @if $repeat == n {
+    $r: no-repeat;
+  }
+  @else if $repeat == r {
+    $r: repeat;
+  }
+  @else if $repeat == rx {
+    $r: repeat-x;
+  }
+  @else if $repeat == ry {
+    $r: repeat-y;
+  }
+  @if $posion == cc {
+    $p: center;
+  }
+  @else if $posion == ct {
+    $p: center top;
+  }
+  @else if $posion == cb {
+    $p: center bottom;
+  }
+  @else if $posion == lc {
+    $p: left center;
+  }
+  @else if $posion == rc {
+    $p: right center;
+  }
+  @else {
+    $p: $posion;
+  }
+  background: url($img-path + $img-name + ".png") $r $p;
+}
+
+//Shortened Padding
+@mixin pd($var: 0) {
+  padding: $var;
+}
+
+//Shortened Margin
+@mixin m($var: 0) {
+  margin: $var;
+}
+
+//Shortened Position
+@mixin p($top, $left: "", $bottom: "", $right: "") {
+  @if $top != "" {
+    top: $top + px;
+  }
+  @if $left != "" {
+    left: $left + px;
+  }
+  @if $bottom != "" {
+    bottom: $bottom + px;
+  }
+  @if $right != "" {
+    right: $right + px;
+  }
+}
+
+@mixin ps {
+  position: static;
+}
+
+@mixin pa {
+  position: absolute;
+}
+
+@mixin pf {
+  position: fixed;
+}
+
+@mixin pr {
+  position: relative;
+}
+
+//Shortened Transition
+@mixin tr($t: $default-transition) {
+  -webkit-transition: $t;
+  -moz-transition: $t;
+  -ms-transition: $t;
+  -o-transition: $t;
+  transition: $t;
+}
+
+
+
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.column {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#text-content .text > ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+hr.hr {
+  border-top: 2px solid #a1b1bc;
+  max-width: 50px;
+}
+
+button.btn {
+  width: 240px;
+  line-height: 60px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Raleway', sans-serif;
+}
+
+.half-side {
+  width: 50%;
+  float: left;
+  &:first-child {
+    padding-right: 50px;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin bg($url) {
+  background: url($url) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin ft_aws-pseudo($font) {
+  &:after {
+	content: "$font";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;	
+  }
+
+}
+
+@mixin placeholder-color($color){
+	&::-webkit-input-placeholder {
+    	color:    $color;
+	}
+	&:-moz-placeholder {
+	   color:    $color;
+	   opacity:  1;
+	}
+	&::-moz-placeholder {
+	   color:    $color;
+	   opacity:  1;
+	}
+	&:-ms-input-placeholder {
+	   color:    $color;
+	}
+	&:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+	  color:    $color;
+	}
+}
+
+@mixin reset-btn() {
+    overflow: visible; // Shrinkwrap the text in IE7-
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit; // Inherit font settings (doesn’t work in IE7-)
+    line-height: normal; // Override line-height to avoid spacing issues
+    cursor: pointer; // Buttons don’t make the cursor change in all browsers
+    -moz-user-select: text; // Make button text selectable in Gecko
+
+    /* Remove mystery padding in Gecko browsers.
+     * See https://bugzilla.mozilla.org/show_bug.cgi?id=140562
+     */
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+@mixin triangle($direction, $size: 6px, $color: #222){
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0; width: 0;
+  @if ($direction == 'up'){
+    border-bottom: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'down'){
+    border-top: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+/*
+  Font face
+*/
+$font-dir: "../fonts/";
+
+@mixin font-face($family, $fontname, $style: normal, $weight: normal) {
+
+  @font-face {
+    font-family: $family;
+    src: url('#{$font-dir}#{$fontname}.eot'); // IE9 compat
+    src: url('#{$font-dir}#{$fontname}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+    url('#{$font-dir}#{$fontname}.woff') format('woff'), // standards
+    url('#{$font-dir}#{$fontname}.ttf') format('truetype'), // Safari, Android, iOS
+    url('#{$font-dir}#{$fontname}.svg##{$family}') format('svg'); // legacy iOS
+
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
