@@ -1,0 +1,5 @@
+[17:46:58] Alexander Osmichenko: Force Regenerate Thumbnails  - название плагина
+[17:47:07] Alexander Osmichenko: http://quattro.artweblab.com/wp-admin/tools.php?page=force-regenerate-thumbnails
+[17:47:10] Alexander Osmichenko: вот тут генерить
+
+https://developer.wordpress.org/reference/functions/add_image_size/

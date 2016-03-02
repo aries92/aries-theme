@@ -1,0 +1,2 @@
+http://foundation.zurb.com/forum/posts/629-sticky-footer
+http://josephfitzsimmons.com/simple-sticky-footer-using-jquery/

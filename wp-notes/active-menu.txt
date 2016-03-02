@@ -1,0 +1,3 @@
+                <li <?php atv_display_active_menu_class('blog'); ?>> <!-- class active if link active -->
+                    <a href="/blog/">Blog</a>
+                </li>

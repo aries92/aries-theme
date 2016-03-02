@@ -1,0 +1,28 @@
+<table>
+<tr>
+<td>Your Name:</td><td> [text* your-name 20/]</td>
+</tr>
+
+<tr>
+<td>Email Adress</td> <td>[email* your-email 20/] </td>
+</tr>
+
+<tr>
+<td>Phone Number</td> <td>[text number 20/] </td>
+</tr>
+
+<tr>
+<td>Comments</td><td> [textarea comments 5x5]</td>
+</tr>
+
+<tr>
+<td>[submit "Send"]</td>
+</tr>
+
+</table>
+
+
+.text form table {
+    border-collapse: separate;
+    border-spacing: 15px;
+}

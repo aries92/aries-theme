@@ -1,0 +1,2 @@
+спочатку дати феатюред імаге в адмінці
+https://codex.wordpress.org/Function_Reference/the_post_thumbnail

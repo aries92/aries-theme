@@ -1,0 +1,4 @@
+1. check other browser
+2. check mobile
+3. validator
+4. check comment code

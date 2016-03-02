@@ -1,0 +1,17 @@
+    <?php
+            global $theme_info;
+            $theme_info = new Artvens_Theme_Helper();
+            $body_class = "is-home";
+            if(!$theme_info->is_home)
+                $body_class = "other-page";
+            wp_head();
+        ?>
+
+http://prntscr.com/72jdyo
+
+  function Artvens_Theme_Helper()
+    {
+        $this->page_path = $this->get_page_path();
+        $this->is_home = is_front_page();
+        add_action('wp_head', array( &$this, 'print_header_data' ));
+    }

@@ -1,0 +1,1 @@
+<?php theros_pagination(); ?>

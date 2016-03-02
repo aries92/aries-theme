@@ -1,0 +1,13 @@
+ <?php
+                    wp_nav_menu(array(
+                        'items_wrap' => '<ul id="%1$s">%3$s</ul>',
+                        'container_class' => 'menu',
+                        'container' => 'nav',
+                        'menu_id' => 'nav',
+                        'theme_location' => 'primary',
+                        'depth' => '1'
+                    ));
+                ?>
+
+http://prntscr.com/8c6epq 
+далі чекаєм всі меню які нам потрібні

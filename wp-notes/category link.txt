@@ -1,0 +1,6 @@
+http://code.re/8R4
+
+ <?php foreach((get_the_category()) as $category) { $category->cat_name . ' '; } ?>
+    <a href="<?php echo get_category_link(get_cat_id($category->cat_name)); ?>">
+      <?php echo $category->cat_name ?>
+    </a>

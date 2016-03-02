@@ -1,0 +1,13 @@
+<?php if(atv_is_home_page()): ?>
+
+ <?php endif; ?> 
+
+<?php if(!atv_is_home_page()): ?>
+
+
+<?php if($theme_info->is_home):?>	
+<?php endif;?>
+
+
+
+<?php if(is_front_page()):?>	

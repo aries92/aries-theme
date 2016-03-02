@@ -1,0 +1,14 @@
+.text form table {
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.inerest-checkbox > span {
+	display: block;
+	width: 210px;
+	float: left;
+}
+
+.form-block {
+	width: 100px;
+}

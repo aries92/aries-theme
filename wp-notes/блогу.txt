@@ -1,0 +1,7 @@
+http://codex.wordpress.org/Template_Tags/wp_list_categories
+
+<?php atv_display_recent_posts(1); ?>
+
+<?php wp_list_categories('exclude=4,7&title_li='); ?>
+
+https://www.tastyplacement.com/wordpress-tutorial-display-all-posts-on-a-page

@@ -1,0 +1,26 @@
+From scratch
+=================
+- Load OpenServer
+- Create new databse in phpmyadmin
+- Create folder in domains folder
+- Run wordpress install on localhost new created database
+- Setup init moduls below
+
+From website on clients hos
+====================
+- Create html folder
+- Create all pnpm plugins
+- After work deploy all files on server folder
+
+cd your folder
+//rimraf node_modules
+ 
+npm install gulp gulp-sass gulp-autoprefixer browser-sync gulp-cssnano gulp-sourcemaps gulp-imagemin gulp-cache run-sequence gulp-plumber --save-dev
+
+From client host to locahost
+==============
+1. з sql файла замінюєм усі лінки з оргінального сайту на наприклад http://healthypsych/
+2. тоді з такою назвою healthypsych створюєм чисту базу даних в пчпмайадмін
+3. експортуєм туди нашу відредаговану базу даних
+4. після цього в папку з хостами в папку healthypsych закидаєм клієнтський вордпрес
+5. healthypsych/ вбиваєм в вікні браузера для інсталяції

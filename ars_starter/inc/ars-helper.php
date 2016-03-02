@@ -4,7 +4,7 @@
  *
  * @dev: Taras Tymovskyi
  * @date: 28/01/16
- * @package starter
+ * @package ars_starter
  */
 
 /**
@@ -194,6 +194,14 @@ if (!function_exists('responsive_breadcrumb_lists')) :
 
 endif;
 
+/**
+ * Shorthand of directions
+ * @use <?dr()?>
+ */
+function dr() {
+    $direction = bloginfo('stylesheet_directory');
+    echo $direction;
+}
 
 /**
  * Funtion to add CSS class to body
@@ -242,3 +250,87 @@ function ars_add_post_type(){
 	register_post_type($slug, $args);
 }
 add_action('init', 'ars_add_post_type');
+
+/**
+ * Get instagram feed(back-end)
+ * @display https://gist.github.com/aries92/b8e833070f43288d18e2
+**/
+
+function scrape_instagram( $username, $slice = 9 ) {
+    $username = strtolower( $username );
+
+
+    if ( false === ( $instagram = get_transient( 'instagram-media-2-' . sanitize_title_with_dashes( $username ) ) ) ) {
+
+        $args = array(
+            'timeout'     => 5,
+            'redirection' => 5,
+            'httpversion' => '1.0',
+            'user-agent'  => 'WordPress/4.3; ' . get_bloginfo( 'url' ),
+            'blocking'    => true,
+            'headers'     => array(),
+            'cookies'     => array(),
+            'body'        => null,
+            'compress'    => false,
+            'decompress'  => true,
+            'sslverify'   => false,
+            'stream'      => false,
+            'filename'    => null
+        );
+        $remote = wp_remote_get( 'https://instagram.com/' . trim( $username ), $args );
+
+
+
+        if ( is_wp_error( $remote ) ) {
+            return new WP_Error( 'site_down', __( 'Unable to communicate with Instagram.', $this->wpiwdomain ) );
+        }
+
+        if ( 200 != wp_remote_retrieve_response_code( $remote ) ) {
+            return new WP_Error( 'invalid_response', __( 'Instagram did not return a 200.', $this->wpiwdomain ) );
+        }
+
+
+        $shards      = explode( 'window._sharedData = ', $remote[ 'body' ] );
+        $insta_json  = explode( ';</script>', $shards[ 1 ] );
+        $insta_array = json_decode( $insta_json[ 0 ], true );
+
+
+        if ( ! $insta_array ) {
+            return new WP_Error( 'bad_json', __( 'Instagram has returned invalid data.', $this->wpiwdomain ) );
+        }
+
+        $images = $insta_array[ 'entry_data' ][ 'ProfilePage' ][0]['user']['media']['nodes'];
+        $instagram = array ();
+
+        foreach ( $images as $image ) {
+
+            $instagram[ ] = array (
+                'description' => $image[ 'caption' ],
+                'link'        => 'https://instagram.com/p/'.$image[ 'code' ],
+                'time'        => $image[ 'date' ],
+                'comments'    => $image[ 'comments' ][ 'count' ],
+                'likes'       => $image[ 'likes' ][ 'count' ],
+                'image'      => $image[ 'display_src' ],
+                'type'        => ((bool)$image[ 'is_video' ]) ? 'video' : 'image'
+            );
+        }
+
+        $instagram = base64_encode( serialize( $instagram ) );
+        set_transient( 'instagram-media-2-' . sanitize_title_with_dashes( $username ), $instagram, apply_filters( 'null_instagram_cache_time', HOUR_IN_SECONDS * 2 ) );
+    }
+
+    $instagram = unserialize( base64_decode( $instagram ) );
+
+    return array_slice( $instagram, 0, $slice );
+}
+
+function images_only( $media_item ) {
+
+    if ( $media_item[ 'type' ] == 'image' ) {
+        return true;
+    }
+
+    return false;
+}
+
+

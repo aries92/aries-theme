@@ -1,0 +1,87 @@
+<?php atv_display_recent_posts(1); ?>
+
+Search Engine Visibility дописати галочку на вордпрес settings
+
+
+/*Wordpress edits */
+
+ #text-content .caption h1 a,
+ #text-content .caption h1,
+ #text-content .caption a,
+ #text-content .caption {
+	font-size: 18px;
+	color:#000000;
+	font-family: Open Sans, sans-serif;
+}
+
+#text-content .text p{
+	margin-top: 10px;
+}
+
+#text-content .text ul li{
+	list-style: disc;
+	margin-left:20px;
+}
+
+#text-content .text ul {
+	padding-bottom:10px;
+
+}
+
+NEW
+=================================
+#text-content .caption h1 {
+	margin: 0;
+}
+
+#text-content .caption {
+	font-size: 0;
+}
+
+ #text-content .caption h5 a,
+ #text-content .caption h4 a,
+ #text-content .caption h3 a,
+ #text-content .caption h2 a,
+ #text-content .caption h1 a{
+	text-decoration: none;
+	color: #005695;
+}
+
+ .search .spacer {
+ 	padding: 10px;
+ }
+
+
+#text-content .text p{
+	margin-top: 10px;
+}
+
+#text-content .text ul li{
+	list-style: disc;
+	margin-left:20px;
+}
+
+#text-content .text ul {
+	padding-bottom:10px;
+
+}
+
+#nav-below a {
+        color:black;
+}
+
+//////////////
+
+<ul id="nav">
+        	<li id="nav1" <?php if (is_home()){ echo "class=\"current\"";}?>><a href="<?php echo get_option('home'); ?>">Home</a></li>
+            <li id="nav2" <?php if (is_page('products-page')){ echo "class=\"current\"";}?>><a href="<?php echo get_option('home'); ?>/products-page">Buy Cookies</a></li>
+            <li id="nav3" <?php if (is_category('articles')){ echo "class=\"current\"";}?>><a href="<?php echo get_option('home'); ?>/category/articles">Articles & Ideas</a></li>
+            <li id="nav4" <?php if (is_page('contact-us')){ echo "class=\"current\"";}?>><a href="<?php echo get_option('home'); ?>/contact-us">Contact Us</a></li>
+        </ul>
+
+<li <?php if (is_page('contact')){ echo "class=\"active\"";}?>><a href="<?php echo get_option('contact'); ?>/contact">CONTACT</a></li>
+
+http://960development.com/code-snippet/apply-active-class-on-current-page-menu-item/
+
+
+https://docs.google.com/document/d/10y1e2Gi4NvHRImmGfYTiQi-TKSVLnJdEsa11FTdKEug/edit

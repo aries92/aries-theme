@@ -1,0 +1,15 @@
+ <!-- static content goes here if sidebar is inactive -->
+    <div id="sidebar">
+      <div class="caption">Body</div>
+         <ul>
+              <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('shop-sidebar') ) :  endif; ?>
+              <li><a href="#">Test</a></li>
+              <li><a href="#">Test Test</a></li>
+              <li><a href="#">Bath</a></li>
+              <li><a href="#">Test Test</a></li>
+              <li><a href="#">Bath</a></li>
+              <li><a href="#">Test Test</a></li>
+              <li><a href="#">Bath</a></li>
+         </ul>
+  </div>
+<div class="clear"></div>

@@ -1,0 +1,7 @@
+       <?php
+        $circles = get_field('circles');
+                var_dump($circles);
+        ?>
+
+<img src="<?php echo $circles[0]['icon'] ?>" alt="">
+<?php echo $circles[0]['text'] ?>

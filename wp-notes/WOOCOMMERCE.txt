@@ -1,0 +1,16 @@
+ADD SHORT DESRIPION AFTER, SHO PAGE
+========================================
+http://stackoverflow.com/questions/15479712/woocommerce-description-in-products-page
+
+
+REMOVE SIDEBAR
+=========================================
+add_action('template_redirect', 'remove_sidebar_shop');
+
+function remove_sidebar_shop() {
+    remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar');
+}
+
+FULL ADD CART LINK
+=====================
+https://docs.woothemes.com/document/show-cart-contents-total/

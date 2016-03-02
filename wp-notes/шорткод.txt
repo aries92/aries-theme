@@ -1,0 +1,12 @@
+<?php echo do_shortcode( '[contact-form-7 id="9" title="Contact form 1"]' ); ?>
+
+[calendarizeit]
+
+
+[ nggallery id=36 ] галлерея
+
+
+ <?php get_template_part( 'front-page-blog' ); ?>
+
+
+http://www.nextgen-gallery.com/

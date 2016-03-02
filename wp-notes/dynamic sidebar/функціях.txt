@@ -1,0 +1,21 @@
+if ( function_exists('register_sidebar') ) {
+    register_sidebar(array(
+    'name' => 'Shop Sidebar',
+    'id' => 'shop-sidebar',
+    'description' => 'sidebar for shop',
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget' => '</li>',
+    'before_title' => '<div class="caption widgettitle">',
+    'after_title' => '</div>',
+    ));
+
+    register_sidebar(array(
+        'name' => 'Sub Header',
+        'id' => 'header-sidebar',
+        'description' => 'sidebar for header',
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<div class="caption widgettitle">',
+        'after_title' => '</div>',
+    ));
+}
