@@ -15,7 +15,8 @@ From website on clients hos
 cd your folder
 //rimraf node_modules
  
-npm install gulp gulp-sass gulp-autoprefixer browser-sync gulp-cssnano gulp-sourcemaps gulp-imagemin gulp-cache run-sequence gulp-plumber --save-dev
+npm install gulp gulp-sass gulp-autoprefixer gulp-cssnano gulp-sourcemaps gulp-imagemin gulp-cache run-sequence gulp-plumber browser-sync --save-dev
+
 
 From client host to locahost
 ==============

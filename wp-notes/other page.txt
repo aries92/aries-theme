@@ -15,3 +15,8 @@ http://prntscr.com/72jdyo
         $this->is_home = is_front_page();
         add_action('wp_head', array( &$this, 'print_header_data' ));
     }
+
+
+
+=====================
+<body <?php if ( is_home() || is_front_page() ) {body_class(); } else {  body_class( 'other-page ' .  $post->post_name ); } ?>>
