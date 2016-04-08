@@ -253,7 +253,7 @@ add_action('init', 'ars_add_post_type');
 
 /**
  * Get instagram feed(back-end)
- * @display https://gist.github.com/aries92/b8e833070f43288d18e2
+ * Display https://gist.github.com/aries92/b8e833070f43288d18e2
 **/
 
 function scrape_instagram( $username, $slice = 9 ) {

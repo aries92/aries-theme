@@ -152,6 +152,15 @@ img, iframe {
   text-align: left;
 }
 
+.btn.custom {
+  border-radius: 0;
+  padding: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -164,6 +173,19 @@ img, iframe {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin centerY {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin centerX {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 @mixin bg($url) {
   background: url($url) no-repeat center center;

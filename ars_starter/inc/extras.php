@@ -24,6 +24,19 @@ function ars_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	return $classes;
+    if ( ! wp_is_mobile() ) {
+        $classes[] = 'desktop';
+    }
+
+    if ( wp_is_mobile() ) {
+        $classes[] = 'mobile';
+    }
+
+    if ( !is_front_page() ) {
+        $classes[] = 'other-page';
+    }
+
+
+    return $classes;
 }
 add_filter( 'body_class', 'ars_body_classes' );
