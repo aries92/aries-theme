@@ -204,22 +204,6 @@ function dr() {
 }
 
 /**
- * Funtion to add CSS class to body
- */
-function responsive_add_class( $classes ) {
-
-	// Get Responsive theme option.
-	global $responsive_options;
-	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
-		$classes[] = 'front-page';
-	}
-
-	return $classes;
-}
-
-add_filter( 'body_class','responsive_add_class' );
-
-/**
  * Create admin section
  */
 function ars_add_post_type(){

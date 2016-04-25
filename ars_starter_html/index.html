@@ -5,31 +5,431 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Test Project</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=480, maximum-scale=1, user-scalable=no">
 
-        <link rel="stylesheet" href="/src/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/src/css/init.css">
-
+        <script src="/src/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="dist/css/init.min.css">
     </head>
     <body>
 
-        <header>
-            <div class="container">
-                <div class="row no-gutter">
-                    <div class="col col-md-9 col-sm-9 hidden-xs">
-
+    <section id="search-result">
+        <div class="container-fluid column">
+            <section class="top-bar">
+                <div class="row">
+                    <div class="bar-left col-sm-8 col-xs-12">
+                        <div class="cap left">
+                            Search Results
+                        </div>
+                        <div class="pagination">
+                            <ul>
+                                <li>
+                                    <a href="#">1</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 hidden-xs">
-
+                    <div class="bar-right col-sm-4 col-xs-12">
+                        <button class="map-btn btn right">
+                            <a href="#">
+                                Show on map <img src="src/img/marker.svg" alt="">
+                            </a>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </header>
+            </section>
+            <section id="list-content">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-company zero-stars text-is-exist bar-is-exist ds-low">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img1.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLP COACHING SESSIONS If you want to make a change in your life, build confidence, regain motivation and achieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-company five-stars text-not-exist bar-not-exist ds-high">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer Silver Loyalty Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLP COACHING SESSIONS If you want to make a change in your life, build confidence, regain motivation and achieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-promo three-stars text-is-exist bar-is-exist ds-low is-adult">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLP COACHING SESoation and achieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-company two-stars text-not-exist bar-is-exist ds-high">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer Customer Customer Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLe, build confidence, regachieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-company four-stars text-is-exist bar-is-exist ds-average">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLP COACHING SESSIONS If you want to make a change in your life, build confidence, regain motivation and achieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="item tp-promo three-stars text-is-exist bar-not-exist ds-low is-adult">
+                            <section class="content">
+                                <section class="top">
+                                    <span class="img" style="background-image: url(/src/img/item-img.jpg);"></span>
+                                    <div class="stars">
+                                        <div class="inner"></div>
+                                    </div>
+                                </section>
+                                <section class="middle">
+                                    <div class="description">
+                                        <div class="cap">Silver Loyalty Customer</div>
+                                        <div class="text">
+                                            <div class="txt-custom">PERSONAL NLP COACHING SESoation and achieve work and life balance this program is for you.</div>
+                                            <div class="txt-default">No promotion description :(</div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="bottom">
+                                    <div class="bar">
+                                        <div class="wrapper clearfix">
+                                            <div class="left">
+                                                <ul>
+                                                    <li>
+                                                        <div class="date">days</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">hours</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="date">min</div>
+                                                        <div class="border"></div>
+                                                        <div class="numb">23</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="right">
+                                                <div class="rating">
+                                                    -55%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section class="adult-notice">
+                                <div class="wrapper">
+                                    <div class="cap">Adults Only 18+</div>
+                                    <div class="image">
+                                        <img src="src/img/alert.png" alt="">
+                                    </div>
+                                    <button class="btn close-adult-notice">
+                                        I Confirm
+                                    </button>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/init.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/src/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="src/js/init.js"></script>
     </body>
 </html>

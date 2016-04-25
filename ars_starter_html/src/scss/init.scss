@@ -1,32 +1,52 @@
-@import "../scss/_base/font-awesome/font-awesome.scss";
+//@import "../scss/_base/font-awesome/font-awesome.scss";
 
-@import "../scss/_base/bootstrap.scss";
-
-@import "../scss/_base/slick.scss";
-@import "../scss/_base/slick-theme.scss";
-
-@import "../scss/_modules/nav.scss";
-
+@import "../scss/_base/_bootstrap.scss";
 
 @import "../scss/_helper/_helper.scss";
 
-@import "../scss/header.scss";
-@import "../scss/footer.scss";
 
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Thin Italic", 100, italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Thin", 100, inherit);
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,500,600,700,900,800);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Light Italic", 300, italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Light", 300, inherit);
+
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Regular Italic", 400, italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Regular", 400, inherit);
+
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Semibold Italic", 600, italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Semibold", 600, inherit);
+
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Extrabold Italic", 800, italic);
+@include font-face("ProximaNova", "/src/fonts/proxima-nova/Proxima Nova Extrabold", 800, inherit);
+
 
 body {
-  font-size: 16px;
+  background: #f6f6f6;
+  font-family: "ProximaNova", sans-serif;
+  font-weight: 400;
 }
 
-.cap {
-  font-family: 'Raleway', sans-serif;
+.column {
+  max-width: 1410px;
+  width: 100%;
+  margin: 0 auto;
+  @include transition(all 300ms ease-in-out);
+  .row {
+    @include transition(all 300ms ease-in-out);
+    [class*='col-'] {
+      @include transition(all 300ms ease-in-out);
+    }
+  }
 }
 
-.txt {
-  font-family: 'Lato', sans-serif;
+.btn {
+  padding: 0;
+  display: block;
+  border-radius: 0;
 }
 
+
+//MODULES
+@import "../scss/_modules/search-result.scss";
 
