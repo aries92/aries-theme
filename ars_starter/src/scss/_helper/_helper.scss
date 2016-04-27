@@ -257,6 +257,16 @@ img, iframe {
   white-space: nowrap;
 }
 
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: left;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
 @mixin fill {
   content: "";
   position: absolute;
@@ -326,16 +336,72 @@ img, iframe {
 
 /*
   Font face
+  usage /src/
 */
 @mixin font-face($font-family, $file-path, $font-weight, $font-style) {
   @font-face {
     font-family: $font-family;
-    src: url('#{$file-path}.eot');
-    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
-    url('#{$file-path}.woff') format('woff'),
-    url('#{$file-path}.ttf') format('truetype'),
-    url('#{$file-path}.svg##{$font-family}') format('svg');
+    src:
+        //url('#{$file-path}.eot'),
+        //url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+        //url('#{$file-path}.woff') format('woff'),
+        url('#{$file-path}.otf') format('truetype');
+        //url('#{$file-path}.svg##{$font-family}') format('svg');
     font-weight: $font-weight;
     font-style: $font-style;
   }
+}
+
+/*
+  Long Shadow Mixin
+  @link http://codepen.io/awesomephant/pen/mAxHz
+  @usage @include long-shadow($type: text, $color: indigo, $length: 50, $fadeout: false, $skew: true, $direction: right);
+*/
+@mixin long-shadow($type, $color, $length, $fadeout: true, $skew: false, $direction: right){
+  $shadow: '';
+  @if $skew == false or $type == text{
+    @if $direction == right {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+    @if $direction == left {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+  }
+
+  @if $fadeout == true{
+    @for $i from 1 to $length - 1 {
+      @if $type == text or $skew == false{
+        @if $direction == right{
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' +       rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left{
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' +       rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+      @if ($type == box) and $skew == true{
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+    }
+    $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba($color, 0);
+  }
+  @if $fadeout == false{
+    @if $skew == true and ( $type == box ){
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .1 + 'px ' + $color + ',';
+      }
+    }
+    $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba(0,0,0,0);
+  }
+  $shadow: unquote($shadow);
+  @if $type == 'box' {box-shadow: $shadow;}
+  @if $type == 'text' {text-shadow: $shadow;}
 }
