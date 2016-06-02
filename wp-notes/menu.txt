@@ -5,7 +5,7 @@
                         'container' => 'nav',
                         'menu_id' => 'nav',
                         'theme_location' => 'primary',
-                        'depth' => '1'
+                        'depth' => '2'
                     ));
                 ?>
 

@@ -1,17 +1,17 @@
 function.php
-function get_excerpt(){
+function ars_excerpt($i){
     $excerpt = get_the_content();
     $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
     $excerpt = strip_shortcodes($excerpt);
     $excerpt = strip_tags($excerpt);
-    $excerpt = substr($excerpt, 0, 180);
+    $excerpt = substr($excerpt, 0, $i);
     $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
     $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-    return $excerpt;
+    echo $excerpt;
 }
 
 index.php
- <?php echo get_excerpt(); ?>
+ <?php ars_excerpt(); ?>
 <div class="link">
 	<a href="<?php the_permalink(); ?>">Read More</a>
 </div>

@@ -1,0 +1,20 @@
+output taxonomy
+
+    <?php
+                            $terms = get_terms( array(
+                                'taxonomy' => 'type',
+                                'hide_empty' => false,
+                            ) );
+                            echo '<li data-filter="*">All</li>';
+                            foreach ($terms as $t) {
+                                echo '<li data-filter=.'.$t->slug.'>'.$t->name.'</li>';
+                            }
+                            ?>
+
+
+wp_query
+  $args = array(
+                        'post_type' => 'portfolio',
+                        'paged' => $paged,
+                        'posts_per_page' => 4
+                    );

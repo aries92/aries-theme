@@ -1,0 +1,40 @@
+ <ul>
+        <?php
+            $args = array(
+                'posts_per_page' => 4
+            );
+            $category_posts = new WP_Query($args);
+
+        if($category_posts->have_posts()) :
+            while($category_posts->have_posts()) :
+                $category_posts->the_post();
+                ?>
+                <li>
+                    <div class="left">
+                        <div class="date">
+                            <?php echo get_the_date(); ?>
+
+                        </div>
+                        <?php
+                            if ( has_post_thumbnail() ) {
+                                the_post_thumbnail();
+                            }
+                        ?>
+                    </div>
+                    <div class="right">
+                        <div class="cap">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </div>
+                        <div class="text">
+                            <?php echo get_excerpt(); ?>
+                            <div class="link">
+                                <a href="<?php the_permalink(); ?>">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endwhile; else: ?>
+                Oops, there are no posts.
+            <?php endif;?>
+        </ul>
+    </div>

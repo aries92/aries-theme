@@ -12,7 +12,7 @@
  * Adopted from Coraline
  */
 function responsive_excerpt_length($length) {
-	return 40;
+	return 30;
 }
 
 add_filter('excerpt_length', 'responsive_excerpt_length');
@@ -203,12 +203,28 @@ function dr() {
     echo $direction;
 }
 
+///**
+// * Funtion to add CSS class to body
+// */
+//function responsive_add_class( $classes ) {
+//
+//	// Get Responsive theme option.
+//	global $responsive_options;
+//	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
+//		$classes[] = 'front-page';
+//	}
+//
+//	return $classes;
+//}
+//
+//add_filter( 'body_class','responsive_add_class' );
+
 /**
  * Create admin section
  */
 function ars_add_post_type(){
-	$name = 'Slider';
-	$slug = 'slider-post';
+	$name = 'Collection';
+	$slug = 'collection-post';
 	$support = array('title', 'editor', 'thumbnail');
 	$post_labels = array(
 		'name' => _x($name, 'taxonomy general name', ''),
@@ -220,7 +236,6 @@ function ars_add_post_type(){
 		'update_item' => __('Update '.$name, ''),
 		'add_new_item' => __('Add New '.$name, '')
 	);
-
 	$args = array(
 		'labels' => $post_labels,
 		'rewrite' => array('slug' => $slug, 'with_front' => false),
@@ -231,9 +246,160 @@ function ars_add_post_type(){
 		'hierarchical' => false,
 		'supports' => $support
 	);
+
 	register_post_type($slug, $args);
+
+    $name = 'Portfolio';
+    $slug = 'portfolio';
+    $support = array('title', 'editor', 'thumbnail');
+    $post_labels = array(
+        'name' => _x($name, 'taxonomy general name', ''),
+        'singular_name' => _x($name, ''),
+        'search_items' => __('Search '.$name, ''),
+        'all_items' => __($name, ''),
+        'parent_item' => __('Parent '.$name, ''),
+        'edit_item' => __('Edit '.$name, ''),
+        'update_item' => __('Update '.$name, ''),
+        'add_new_item' => __('Add New '.$name, '')
+    );
+    $args = array(
+        'labels' => $post_labels,
+        'rewrite' => array('slug' => $slug, 'with_front' => false),
+        'singular_label' => __($name, ''),
+        'public' => true,
+        'publicly_queryable' => true,
+        'has_archive' => true,
+        'show_ui' => true,
+        'hierarchical' => false,
+        'supports' => $support
+    );
+
+    register_post_type($slug, $args);
+
 }
 add_action('init', 'ars_add_post_type');
+
+
+function ars_add_taxonomy() {
+
+    $name = 'Type';
+    $slug = 'type';
+    $post_type_to_connect = 'portfolio';
+//    or 'post'
+
+    $labels = array(
+        'name'              => _x( $name, 'taxonomy general name' ),
+        'singular_name'     => _x( $name, 'taxonomy singular name' ),
+        'search_items'      => __( 'Search '.$name ),
+        'all_items'         => __( 'All '.$name ),
+        'parent_item'       => __( 'Parent '.$name ),
+        'parent_item_colon' => __( 'Parent '.$name.':' ),
+        'edit_item'         => __( 'Edit '.$name ),
+        'update_item'       => __( 'Update '.$name ),
+        'add_new_item'      => __( 'Add New '.$name ),
+        'new_item_name'     => __( 'New '.$name.' Name' ),
+        'menu_name'         => __( $name ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => $slug )
+    );
+
+    register_taxonomy( $slug, array( $post_type_to_connect ), $args );
+
+}
+
+add_action( 'init', 'ars_add_taxonomy', 0 );
+
+/**
+ * Adds custom taxonomy class to post_class() function
+ *
+ * @param $classes
+ *
+ * @return array
+ */
+function add_tax_classes($classes) {
+    global $post;
+
+    $tax_terms = get_the_terms($post->ID, array('type'));
+    if($tax_terms) {
+        $tax_terms = wp_list_pluck($tax_terms,'slug');
+        $classes = array_merge($classes, $tax_terms);
+    }
+    return $classes;
+}
+add_filter('post_class','add_tax_classes');
+
+
+/**
+ * Adds custom pagination
+ * @usage  custom_pagination($custom_query->max_num_pages,"",$paged);
+ */
+function custom_pagination($numpages = '', $pagerange = '', $paged='') {
+
+    if (empty($pagerange)) {
+        $pagerange = 2;
+    }
+
+    /**
+     * This first part of our function is a fallback
+     * for custom pagination inside a regular loop that
+     * uses the global $paged and global $wp_query variables.
+     *
+     * It's good because we can now override default pagination
+     * in our theme, and use this function in default quries
+     * and custom queries.
+     */
+    global $paged;
+    if (empty($paged)) {
+        $paged = 1;
+    }
+    if ($numpages == '') {
+        global $wp_query;
+        $numpages = $wp_query->max_num_pages;
+        if(!$numpages) {
+            $numpages = 1;
+        }
+    }
+
+    /**
+     * We construct the pagination arguments to enter into our paginate_links
+     * function.
+     */
+    $pagination_args = array(
+        'base'            => get_pagenum_link(1) . '%_%',
+        'format'          => 'page/%#%',
+        'total'           => $numpages,
+        'current'         => $paged,
+        'show_all'        => False,
+        'end_size'        => 1,
+        'mid_size'        => $pagerange,
+        'prev_next'       => True,
+        'prev_text'       => __('< Previous'),
+        'next_text'       => __('Next >'),
+        'type'            => 'list',
+        'add_args'        => false,
+        'add_fragment'    => ''
+    );
+
+    $paginate_links = paginate_links($pagination_args);
+
+    if ($paginate_links) {
+        echo "<nav class='pagination'>";
+        echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+        echo $paginate_links;
+        echo "</nav>";
+    }
+
+}
+
+
+
 
 /**
  * Get instagram feed(back-end)
