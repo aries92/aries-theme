@@ -158,8 +158,7 @@ img, iframe {
   a {
     text-decoration: none;
   }
-}
-
+}c
 
 @mixin flex-center {
   display: flex;
@@ -305,6 +304,10 @@ img, iframe {
 
 @function lt-spacing($font-size, $ps-tracking) {
   @return $ps-tracking * $font-size / 1000;
+}
+
+@mixin fw-font() {
+  @return  font: normal normal normal 14px/1 FontAwesome;
 }
 
 @mixin triangle($direction, $size: 6px, $color: #222){

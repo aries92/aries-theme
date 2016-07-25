@@ -7,8 +7,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache');
-var cssnano = require('gulp-cssnano')
-var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano'),
+	sass = require('gulp-sass');
 	sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 

@@ -1,0 +1,10 @@
+Comment Form
+==============
+http://code.tutsplus.com/articles/customizing-comments-in-wordpress-functionality-and-appearance--wp-26128
+
+Comment List
+================
+http://www.wpexplorer.com/better-wordpress-comments/
+
+
+https://themeshaper.com/2012/11/04/the-wordpress-theme-comments-template/
