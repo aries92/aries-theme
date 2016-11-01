@@ -41,13 +41,25 @@ function ars_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'ars_body_classes' );
 
-function ars_excerpt($a){
-    $excerpt = get_the_content();
-    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
-    $excerpt = strip_shortcodes($excerpt);
-    $excerpt = strip_tags($excerpt);
-    $excerpt = substr($excerpt, 0, $a);
-    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+//function ars_excerpt($a){
+//    $excerpt = get_the_content();
+//    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+//    $excerpt = strip_shortcodes($excerpt);
+//    $excerpt = strip_tags($excerpt);
+//    $excerpt = substr($excerpt, 0, $a);
+//    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+//    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+//    echo $excerpt;
+//}
+
+function ars_excerpt($limit) {
+    $excerpt = explode(' ', get_the_content(), $limit);
+    if (count($excerpt)>=$limit) {
+        array_pop($excerpt);
+        $excerpt = implode(" ",$excerpt).'...';
+    } else {
+        $excerpt = implode(" ",$excerpt);
+    }
+    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
     echo $excerpt;
 }

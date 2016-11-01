@@ -1,0 +1,15 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1gorHzVpP6qkL1jvREtuWmo-GgVqR2n4&callback=initMap" async defer></script>
+
+function initMap() {
+    var location = {lat: 33.617286, lng: -84.081393};
+    var map = new google.maps.Map(document.getElementById('branches'), {
+        center: location,
+        scrollwheel: false,
+        zoom: 15
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        position: location
+    });
+}

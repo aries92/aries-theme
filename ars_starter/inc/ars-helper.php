@@ -21,14 +21,15 @@ add_filter('excerpt_length', 'responsive_excerpt_length');
  * Returns a "Read more" link for excerpts
  */
 function responsive_read_more() {
-	return '<div class="read-more"><a href="' . get_permalink() . '">' . __('Read more &#8250;', 'responsive') . '</a></div><!-- end of .read-more -->';
+	return '<div class="read-more btn"><a href="' . get_permalink() . '">' . __('Read more', 'responsive') . '</a></div><!-- end of .read-more -->';
 }
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_read_more_link().
  */
 function responsive_auto_excerpt_more($more) {
-	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
+//	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
+	return '<span class="ellipsis">&hellip;</span>';
 }
 
 add_filter('excerpt_more', 'responsive_auto_excerpt_more');
@@ -36,14 +37,14 @@ add_filter('excerpt_more', 'responsive_auto_excerpt_more');
 /**
  * Adds a pretty "Read more" link to custom post excerpts.
  */
-function responsive_custom_excerpt_more($output) {
-	if (has_excerpt() && !is_attachment()) {
-		$output .= responsive_read_more();
-	}
-	return $output;
-}
-
-add_filter('get_the_excerpt', 'responsive_custom_excerpt_more');
+//function responsive_custom_excerpt_more($output) {
+//	if (has_excerpt() && !is_attachment()) {
+//		$output .= responsive_read_more();
+//	}
+//	return $output;
+//}
+//
+//add_filter('get_the_excerpt', 'responsive_custom_excerpt_more');
 
 /**
  * Breadcrumb Lists
@@ -337,6 +338,38 @@ add_filter('post_class','add_tax_classes');
 
 
 /**
+ * Display custom taxonomy of current post
+ * @usage  ars_display_tax('taxonomy id');
+ */
+
+function ars_display_tax($tax) {
+
+    global $post;
+
+    $post_term =  get_the_terms($post->ID, array($tax));
+
+    $arr = array();
+        foreach ($post_term as $t) {
+            $arr[] = $t->slug;
+        }
+    $z = implode(',', $arr );
+    echo str_replace(',', ',&nbsp;', $z);
+}
+
+/**
+ * Display comment textarea after all fields
+ */
+
+function wpb_move_comment_field_to_bottom( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom');
+
+/**
  * Adds custom pagination
  * @usage  custom_pagination($custom_query->max_num_pages,"",$paged);
  */
@@ -397,9 +430,6 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
     }
 
 }
-
-
-
 
 /**
  * Get instagram feed(back-end)
